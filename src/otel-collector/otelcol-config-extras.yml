@@ -8,11 +8,19 @@
 ## Note: the spanmetrics exporter must be included in the exporters array
 ## if overriding the traces pipeline.
 ##
-#  exporters:
-#    otlphttp/example:
-#      endpoint: <your-endpoint-url>
+exporters:
+   kafka:
+     protocol_version: 2.0.0
+     brokers: ["pkc-619z3.us-east1.gcp.confluent.cloud:9092"]
+     client_id: "OTEL exporter"
+     authentication:
+       sasl: 
+         mechanism: "PLAIN"
+         username: "Y7ZBPT4NYMF5QOU6"
+         password: "9NHL32jkzf7RGBZ304kZAiz1MrfbILxt07ZFrxznrxrNxg+xKc6akX12LmYV0fyB"
 #
 #  service:
 #    pipelines:
 #      traces:
 #        exporters: [spanmetrics, otlphttp/example]
+ 
