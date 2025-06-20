@@ -13,7 +13,7 @@ exporters:
      protocol_version: 2.0.0
      brokers: ["pkc-619z3.us-east1.gcp.confluent.cloud:9092"]
      client_id: "OTEL exporter"
-     authentication:
+     auth:
        sasl: 
          mechanism: "PLAIN"
          username: "Y7ZBPT4NYMF5QOU6"
