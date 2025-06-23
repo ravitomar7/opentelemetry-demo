@@ -34,6 +34,9 @@ exporters:
           username: "K35GAAUJWTBSFFZE"
           password: "CJnMeIsL+U7EO8ncGbVerP/v/smrOdYKK/A8RQcP2bmeGnazQ2DfSEl4QogsOpuO"
           mechanism: "PLAIN"
+        tls:
+          insecure: false
+          insecure_skip_verify: true
       metadata:
         full: true
         retry:
