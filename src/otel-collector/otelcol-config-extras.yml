@@ -8,19 +8,51 @@
 ## Note: the spanmetrics exporter must be included in the exporters array
 ## if overriding the traces pipeline.
 ##
+# exporters:
+#    kafka:
+#      protocol_version: 2.0.0
+#      brokers: ["pkc-619z3.us-east1.gcp.confluent.cloud:9092"]
+#      auth:
+#        sasl: 
+#          mechanism: "PLAIN"
+#          username: "K35GAAUJWTBSFFZE"
+#          password: "CJnMeIsL+U7EO8ncGbVerP/v/smrOdYKK/A8RQcP2bmeGnazQ2DfSEl4QogsOpuO"
+#        tls:
+#         insecure: false
+#         insecure_skip_verify: true
 exporters:
-   kafka:
-     protocol_version: 2.0.0
-     brokers: ["pkc-619z3.us-east1.gcp.confluent.cloud:9092"]
-     auth:
-       sasl: 
-         mechanism: "PLAIN"
-         username: "K35GAAUJWTBSFFZE"
-         password: "CJnMeIsL+U7EO8ncGbVerP/v/smrOdYKK/A8RQcP2bmeGnazQ2DfSEl4QogsOpuO"
-       tls:
-        insecure: false
-        insecure_skip_verify: true
-      
+    kafka:
+      timeout: "5s"
+      protocol_version: 2.0.0 
+      topic: otlp_spans
+      encoding: otlp_proto
+      brokers: 
+        - pkc-619z3.us-east1.gcp.confluent.cloud:9092
+      client_id: "controller_broker_client"
+      auth:
+        sasl:
+          username: "K35GAAUJWTBSFFZE"
+          password: "CJnMeIsL+U7EO8ncGbVerP/v/smrOdYKK/A8RQcP2bmeGnazQ2DfSEl4QogsOpuO"
+          mechanism: "PLAIN"
+      metadata:
+        full: true
+        retry:
+          max: 1
+          backoff: "250ms"
+      retry_on_failure:
+        enabled: true
+        initial_interval: "1s"
+        max_interval: "3s"
+        max_elapsed_time: "30s"
+      sending_queue:
+        enabled: true
+        num_consumers: 20
+        queue_size: 5000000
+      producer:
+        max_message_bytes: 109657600
+        #flush_max_messages: 5
+        compression: gzip
+        required_acks: 1
 #
 #  service:
 #    pipelines:
