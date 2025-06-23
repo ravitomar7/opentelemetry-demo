@@ -16,8 +16,8 @@ exporters:
      auth:
        sasl: 
          mechanism: "PLAIN"
-         username: "Y7ZBPT4NYMF5QOU6"
-         password: "9NHL32jkzf7RGBZ304kZAiz1MrfbILxt07ZFrxznrxrNxg+xKc6akX12LmYV0fyB"
+         username: "K35GAAUJWTBSFFZE"
+         password: "CJnMeIsL+U7EO8ncGbVerP/v/smrOdYKK/A8RQcP2bmeGnazQ2DfSEl4QogsOpuO"
        tls:
         insecure: false
         insecure_skip_verify: true
