@@ -119,16 +119,16 @@ service:
   pipelines:
     traces:
       receivers: [otlp]
-      # processors: [memory_limiter, transform, batch]
-      exporters: [kafka]
+      processors: [memory_limiter, transform, batch]
+      exporters: [otlp, debug, spanmetrics,kafka]
     metrics:
       receivers: [hostmetrics, docker_stats, httpcheck/frontend-proxy, otlp, redis, spanmetrics]
       # processors: [memory_limiter, batch]
-      exporters: [kafka]
+      exporters: [debug,kafka]
     logs:
       receivers: [otlp]
       # processors: [memory_limiter, batch]
-      exporters: [kafka]
+      exporters: [debug,kafka]
   telemetry:
     metrics:
       level: detailed
