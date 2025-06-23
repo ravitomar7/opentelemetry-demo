@@ -123,12 +123,12 @@ service:
       exporters: [otlp, debug, spanmetrics,kafka]
     metrics:
       receivers: [hostmetrics, docker_stats, httpcheck/frontend-proxy, otlp, redis, spanmetrics]
-      # processors: [memory_limiter, batch]
-      exporters: [debug,kafka]
+      processors: [memory_limiter, batch]
+      exporters: [otlphttp/prometheus, debug, kafka]
     logs:
       receivers: [otlp]
-      # processors: [memory_limiter, batch]
-      exporters: [debug,kafka]
+      processors: [memory_limiter, batch]
+      exporters: [opensearch, debug,kafka]
   telemetry:
     metrics:
       level: detailed

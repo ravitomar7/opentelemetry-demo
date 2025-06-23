@@ -20,15 +20,7 @@ exporters:
        tls:
         insecure: false
         insecure_skip_verify: true
-     logs:
-        topic: "otel-logs"
-        encoding: "otlp_proto"
-     metrics:
-        topic: "otel-metrics"
-        encoding: "otlp_proto"
-     traces:
-        topic: "otel-traces"
-        encoding: "otlp_proto"
+      
 #
 #  service:
 #    pipelines:
