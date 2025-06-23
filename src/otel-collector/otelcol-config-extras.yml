@@ -20,13 +20,13 @@ exporters:
        tls:
         insecure: false
         insecure_skip_verify: true
-      logs:
+     logs:
         topic: "otel-logs"
         encoding: "otlp_proto"
-      metrics:
+     metrics:
         topic: "otel-metrics"
         encoding: "otlp_proto"
-      traces:
+     traces:
         topic: "otel-traces"
         encoding: "otlp_proto"
 #
