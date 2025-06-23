@@ -12,7 +12,6 @@ exporters:
    kafka:
      protocol_version: 2.0.0
      brokers: ["pkc-619z3.us-east1.gcp.confluent.cloud:9092"]
-     client_id: "OTEL exporter"
      auth:
        sasl: 
          mechanism: "PLAIN"
@@ -21,6 +20,15 @@ exporters:
        tls:
         insecure: false
         insecure_skip_verify: true
+      logs:
+        topic: "otel-logs"
+        encoding: "otlp_proto"
+      metrics:
+        topic: "otel-metrics"
+        encoding: "otlp_proto"
+      traces:
+        topic: "otel-traces"
+        encoding: "otlp_proto"
 #
 #  service:
 #    pipelines:
