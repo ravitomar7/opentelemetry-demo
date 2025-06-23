@@ -128,7 +128,7 @@ service:
     logs:
       receivers: [otlp]
       processors: [memory_limiter, batch]
-      exporters: [opensearch, debug]
+      exporters: [opensearch, debug,kafka]
   telemetry:
     metrics:
       level: detailed
